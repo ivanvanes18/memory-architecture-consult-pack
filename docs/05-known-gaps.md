@@ -2,7 +2,9 @@
 
 ## Critical gap: Context Pack contract
 
-The system needs an explicit contract for what enters prompt context for a task.
+Status: **implementation started**.
+
+The system needs an explicit contract for what enters prompt context for a task. The first implementation slice now exposes contract metadata, routing decisions, included items, excluded items, and exclusion reasons. This is not the full solution yet, but the gap is no longer purely conceptual.
 
 Without it, the system oscillates between:
 

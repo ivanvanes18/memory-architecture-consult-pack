@@ -25,6 +25,8 @@ Deliverable: `human2-alignment-matrix.md`.
 
 ## Phase 1 — Context Pack Contract
 
+Status: **started**. The first Hermes implementation slice now emits contract metadata, routing decisions, inclusion/exclusion logs, and targeted tests.
+
 Define exactly what gets injected for a task.
 
 Required sections:

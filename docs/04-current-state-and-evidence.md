@@ -6,12 +6,12 @@ Snapshot date: 2026-06-27.
 
 ```json
 {
-  "notes": 195,
-  "active_notes": 110,
+  "notes": 207,
+  "active_notes": 122,
   "archived_notes": 85,
-  "raw_turns": 827,
-  "events": 198,
-  "retrieval_logs": 2147
+  "raw_turns": 863,
+  "events": 238,
+  "retrieval_logs": 2230
 }
 ```
 
@@ -78,6 +78,16 @@ Interpretation:
 
 - Capture/extraction works.
 - Review/promotion policy must prevent inbox from becoming permanent clutter.
+
+## Implementation start evidence
+
+The first Context Pack Contract slice has started in the Hermes readable_tree implementation:
+
+- `context_pack_contract_v1` appears in Context Pack output.
+- Context Packs now expose `routing_decision`, `included_items`, and `excluded_items`.
+- Excluded candidates carry machine-readable reasons such as `archived`, `superseded`, `open_loop`, `sensitive`, `secret_ref`, or `over_budget`.
+- A deterministic BranchResolver covers Main / Trading / Projectoriy / Hermes memory contexts and can mark unknown or multi-branch queries as clarification-required.
+- Targeted verification: `16 passed` for Context Pack contract, retrieval, and behavioral-memory tests.
 
 ## Current strongest parts
 

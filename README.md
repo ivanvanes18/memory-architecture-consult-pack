@@ -43,6 +43,7 @@ Focus questions:
 | `docs/07-original-plan-v1.md` | Original plan that was reviewed and found too cleanup-first. |
 | `docs/08-review-prompts.md` | Prompts to give another model/reviewer. |
 | `docs/09-glossary.md` | Terms used in the packet. |
+| `docs/10-external-audit-and-implementation-start.md` | External audit verdict plus first implementation slice and test evidence. |
 
 ## Current verdict
 
@@ -51,6 +52,7 @@ The system is **not off-track**, but the plan needed correction.
 - It is still aligned with the intended direction: raw sessions → events → source-backed notes → retrieval → Context Packs → behavior preflight → outcome review.
 - The dangerous drift was prioritizing provenance cleanup before the actual bottleneck: **Context Pack policy and project-scoped retrieval precision**.
 - The next phase should prove that the agent can retrieve a small, correct, project-specific context bundle across sessions without pulling unrelated domain memory.
+- Implementation has now started: the first slice adds an executable Context Pack contract surface, deterministic routing decision metadata, inclusion/exclusion logs, and targeted tests in the Hermes readable_tree codebase.
 
 ## Public-safety note
 
