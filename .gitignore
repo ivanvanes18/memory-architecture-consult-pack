@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+*.sqlite
+*.db
+raw/
+private/
+secrets/
+__pycache__/
