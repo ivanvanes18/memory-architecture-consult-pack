@@ -86,6 +86,6 @@ Needed:
 - Define what it refuses to scan/promote.
 - Add e2e tests from raw turns → candidates → review → activation/retirement.
 
-## Public review gap
+## Architecture packet boundary
 
-External reviewers need enough context to analyze the system, but public artifacts must not expose private raw memory. This repo is the first public review packet.
+This packet is now kept as an internal/sanitized architecture map for implementation. It should not introduce a separate external-audit process layer unless Ivan explicitly asks for that again.

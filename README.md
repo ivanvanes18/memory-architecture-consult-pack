@@ -1,8 +1,8 @@
-# Agent Memory Architecture Consult Pack
+# Agent Memory Architecture Pack
 
-> Public, sanitized context pack for external review of a personal-agent memory architecture.
+> Sanitized architecture packet for Ivan's personal-agent memory system.
 
-This repository is a **review packet**, not a production codebase. It summarizes the current memory architecture, the user's core pain, the historical influences behind the design, the current implementation state, known gaps, and the proposed next plan.
+This repository is an architecture/context packet, not a production codebase. It summarizes the current memory architecture, the user's core pain, the historical influences behind the design, the current implementation state, known gaps, and the proposed next plan.
 
 ## Why this exists
 
@@ -17,11 +17,9 @@ The goal is **not** "more memory". The goal is:
 
 > Capture broadly, preserve evidence, promote carefully, retrieve narrowly, and build a small source-backed Context Pack for the current task.
 
-## Requested external review
+## Working questions
 
-Please review this repository as if you were advising on a production personal-agent memory system.
-
-Focus questions:
+Use this packet to keep implementation grounded:
 
 1. Is the architecture still aligned with the Human 2.0-style memory direction described here?
 2. Is the next plan correctly prioritizing Context Pack / retrieval policy before cleanup work?
@@ -43,7 +41,6 @@ Focus questions:
 | `docs/07-original-plan-v1.md` | Original plan that was reviewed and found too cleanup-first. |
 | `docs/08-review-prompts.md` | Prompts to give another model/reviewer. |
 | `docs/09-glossary.md` | Terms used in the packet. |
-| `docs/10-external-audit-and-implementation-start.md` | External audit verdict plus first implementation slice and test evidence. |
 
 ## Current verdict
 
@@ -52,7 +49,7 @@ The system is **not off-track**, but the plan needed correction.
 - It is still aligned with the intended direction: raw sessions → events → source-backed notes → retrieval → Context Packs → behavior preflight → outcome review.
 - The dangerous drift was prioritizing provenance cleanup before the actual bottleneck: **Context Pack policy and project-scoped retrieval precision**.
 - The next phase should prove that the agent can retrieve a small, correct, project-specific context bundle across sessions without pulling unrelated domain memory.
-- Implementation has now started: the first slice adds an executable Context Pack contract surface, deterministic routing decision metadata, inclusion/exclusion logs, and targeted tests in the Hermes readable_tree codebase.
+- Implementation has started in Hermes readable_tree: the first slices add an executable Context Pack contract surface, deterministic routing decision metadata, inclusion/exclusion logs, schema/routing fixtures, behavior preflight trace, and targeted tests.
 
 ## Public-safety note
 
