@@ -22,7 +22,7 @@ The reviewer confirmed that the right next priority is not more memory, not clea
 
 ## Implementation has started
 
-The first production slice was started in the Hermes readable_tree codebase.
+The first production slices have started in the Hermes readable_tree codebase.
 
 Implemented initial contracts:
 
@@ -34,6 +34,10 @@ Implemented initial contracts:
 6. Deterministic `BranchResolver` for Main / Trading / Projectoriy / Hermes memory contexts.
 7. Unknown or multi-branch query can require clarification instead of falling back to Main.
 8. Regression tests for contract shape, archived exclusion, ambiguous routing, and Hermes-memory routing without trading contamination.
+9. Explicit Context Pack contract schema fixture for external implementation review.
+10. Cross-project routing fixture matrix for Main/unknown, Hermes memory, Projectoriy/VOR, Trading, and mixed ambiguous queries.
+11. Behavior preflight trace with `rule_fired`, `rule_used_in_answer`, `trigger_features`, `matched_features`, `mistake_classes`, and `outcome_status` placeholders.
+12. Behavior preflight match metrics now include `matched_rule_ids` and `rule_fired`.
 
 ## Fresh verification evidence
 
@@ -43,9 +47,12 @@ Targeted tests run in the Hermes repo:
 python -m pytest tests/plugins/test_readable_tree_context_pack_contract.py \
   tests/plugins/test_readable_tree_retrieval.py \
   tests/plugins/test_readable_tree_behavioral.py \
+  tests/plugins/test_readable_tree_memory.py \
+  tests/plugins/test_readable_tree_lifecycle.py \
+  tests/plugins/test_readable_tree_metrics.py \
   -q -o 'addopts='
 
-16 passed in 0.65s
+120 passed in 5.07s
 ```
 
 ## What this proves
@@ -57,11 +64,13 @@ This does not prove the full memory architecture yet. It proves the first import
 - Routing is represented as machine-readable state.
 - Ambiguity can become a clarification requirement rather than silent Main fallback.
 - A Hermes-memory query can retrieve Hermes memory context without pulling a lexically tempting trading note in the targeted fixture.
+- The review surface now has schema/fixture files, so an external reviewer can evaluate concrete contract expectations rather than only prose.
+- Behavior preflight now emits a machine-readable trace proving which rule fired and what remains unknown (`rule_used_in_answer` / outcome).
 
 ## What remains unproven
 
 - Full fresh-session dogfood through the live gateway.
-- Behavior rule `rule_fired` / `rule_used_in_answer` outcome logging.
+- Whether `rule_used_in_answer` is automatically closed after the final response; for now it is explicitly `null` until outcome review records evidence.
 - Full cross-project suite: Main → Smeta/VOR → Projectoriy → Trading → Main.
 - Dream Cycle safe proposal/apply e2e.
 - Recall@K / Precision@K / contamination-rate reporting across a larger fixture set.
@@ -71,10 +80,10 @@ This does not prove the full memory architecture yet. It proves the first import
 
 Recommended next slice:
 
-1. Add explicit Context Pack JSON schema fixture.
-2. Add branch/project registry fixture with aliases and denied scopes.
-3. Add cross-project contamination test matrix.
-4. Add behavior preflight logging for `rule_fired` and `rule_used_in_answer`.
-5. Add a small evaluator report that prints pack size, included IDs, excluded IDs, and contamination failures.
+1. Add a small evaluator report that prints pack size, included IDs, excluded IDs, branch decision, and contamination failures.
+2. Add the full cross-project journey: Main → Smeta/VOR → Projectoriy → Trading → Main.
+3. Add live/fresh-session dogfood evidence through the MemoryProvider tool path after reload/restart.
+4. Add outcome-review closure for `rule_used_in_answer` where the task result can be evaluated.
+5. Keep Dream Cycle as proposal-only and add e2e proof for proposal/apply separation.
 
 The direction is now implementation-first: each new architectural claim should come with code, a fixture, and test output.

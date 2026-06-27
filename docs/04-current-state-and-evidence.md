@@ -87,7 +87,7 @@ The first Context Pack Contract slice has started in the Hermes readable_tree im
 - Context Packs now expose `routing_decision`, `included_items`, and `excluded_items`.
 - Excluded candidates carry machine-readable reasons such as `archived`, `superseded`, `open_loop`, `sensitive`, `secret_ref`, or `over_budget`.
 - A deterministic BranchResolver covers Main / Trading / Projectoriy / Hermes memory contexts and can mark unknown or multi-branch queries as clarification-required.
-- Targeted verification: `16 passed` for Context Pack contract, retrieval, and behavioral-memory tests.
+- Targeted verification: `120 passed` for Context Pack contract, retrieval, behavioral-memory, lifecycle, memory, and metrics tests.
 
 ## Current strongest parts
 
